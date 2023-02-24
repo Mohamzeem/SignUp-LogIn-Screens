@@ -8,6 +8,7 @@ class TextFromFieldWidget extends StatefulWidget {
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
   final bool obscureText;
+  final String? Function(String?)? validator;
   const TextFromFieldWidget({
     Key? key,
     required this.label,
@@ -15,6 +16,7 @@ class TextFromFieldWidget extends StatefulWidget {
     this.suffixIcon,
     this.keyboardType,
     required this.obscureText,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -27,6 +29,7 @@ class _TextFromFieldWidgetState extends State<TextFromFieldWidget> {
     return TextFormField(
         keyboardType: widget.keyboardType,
         obscureText: widget.obscureText,
+        validator: widget.validator,
         decoration: InputDecoration(
             prefixIcon: Icon(widget.prefixIcon, color: Colors.deepPurple),
             suffixIcon: widget.suffixIcon,
