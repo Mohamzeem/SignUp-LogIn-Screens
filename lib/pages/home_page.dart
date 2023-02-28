@@ -9,6 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final GlobalKey keyForm = GlobalKey();
   List<int> numbers = [];
   int currentIndex = 0;
   // void increment() {
@@ -25,10 +26,9 @@ class _HomePageState extends State<HomePage> {
             IconButton(
                 onPressed: () {
                   setState(() {
-                    // increment();
-                    numbers.add(1);
-                    // print('$currentIndex');
-                    // print(numbers[index]);
+                    numbers.add(currentIndex++);
+                    print('add $currentIndex');
+                    print(numbers);
                   });
                 },
                 icon: const Icon(Icons.add)),
@@ -36,14 +36,14 @@ class _HomePageState extends State<HomePage> {
               child: AnimationLimiter(
                 child: ListView.builder(
                     // shrinkWrap: false,
-                    reverse: true,
+                    reverse: false,
                     controller: ScrollController(),
                     // physics: const BouncingScrollPhysics(
                     //     parent: AlwaysScrollableScrollPhysics()),
                     itemCount: numbers.length,
                     itemBuilder: (context, index) {
                       return AnimationConfiguration.staggeredList(
-                        position: index,
+                        position: currentIndex,
                         duration: const Duration(seconds: 4),
                         delay: const Duration(seconds: 4),
                         child: Padding(
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.amber.shade300,
                               child: ListTile(
                                 title: Text(
-                                  'Number    ${index}',
+                                  'Number    $index',
                                   style: const TextStyle(
                                       fontWeight: FontWeight.w500,
                                       fontSize: 20),
@@ -62,12 +62,11 @@ class _HomePageState extends State<HomePage> {
                                 trailing: IconButton(
                                     onPressed: () {
                                       setState(() {
-                                        // currentIndex = index;
-                                        // numbers.removeWhere((element) => false);
+                                        currentIndex = index;
                                         numbers.removeAt(index);
-                                        // numbers.removeAt(index);
-                                        // numbers.removeRange(start, end);
-                                        print('$index');
+
+                                        print('delete $index');
+                                        print(numbers);
                                       });
                                     },
                                     icon: const Icon(
