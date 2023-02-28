@@ -9,11 +9,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Map<dynamic, dynamic>> numbers = [];
+  List<int> numbers = [];
   int currentIndex = 0;
-  void increment() {
-    currentIndex++;
-  }
+  // void increment() {
+  //   currentIndex++;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   setState(() {
                     // increment();
-                    numbers.add();
+                    numbers.add(1);
                     // print('$currentIndex');
                     // print(numbers[index]);
                   });
