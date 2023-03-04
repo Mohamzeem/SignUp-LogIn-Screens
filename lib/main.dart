@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/pages/home_page.dart';
-import 'package:tasks/pages/simple_list.dart';
-import 'pages/list.dart';
+import 'package:tasks/pages/list_pages/list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const SimpleList(),
+      home: const MyList(),
       theme: ThemeData(
           appBarTheme: const AppBarTheme(backgroundColor: Colors.purple)),
     );
