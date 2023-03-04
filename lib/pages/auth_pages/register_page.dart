@@ -1,19 +1,19 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-import 'package:tasks/pages/home_page.dart';
-import 'package:tasks/pages/register_page.dart';
 import 'package:tasks/widgets/text_from_field_widget.dart';
+import '../../widgets/elevated_button_widget.dart';
+import '../home_page.dart';
+import 'login_page.dart';
 
-import '../widgets/elevated_button_widget.dart';
-
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final formKey = GlobalKey<FormState>();
   bool isVisible = true;
   void passwordStatus() {
@@ -36,11 +36,11 @@ class _LoginPageState extends State<LoginPage> {
                 ClipPath(
                   clipper: WaveClipperTwo(flip: true),
                   child: Container(
-                    height: 320,
+                    height: 250,
                     color: Colors.deepPurple,
                     child: const Center(
                       child: Text(
-                        'Login',
+                        'Register',
                         style: TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.w700,
@@ -49,9 +49,41 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.14),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.only(
+                      left: 15, right: 15, top: 25, bottom: 3),
+                  child: TextFromFieldWidget(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Epmty Name';
+                      } else {
+                        return null;
+                      }
+                    },
+                    label: 'Name \nMuhammad Khalf',
+                    prefixIcon: Icons.person_2_outlined,
+                    obscureText: false,
+                  ),
+                ),
+                Padding(
+                    padding: const EdgeInsets.only(
+                        left: 15, right: 15, top: 2, bottom: 3),
+                    child: TextFromFieldWidget(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Epmty Phone';
+                        } else {
+                          return null;
+                        }
+                      },
+                      label: 'Phone \n00201013168855',
+                      prefixIcon: Icons.phone_android_outlined,
+                      keyboardType: TextInputType.number,
+                      obscureText: false,
+                    )),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 15, right: 15, top: 2, bottom: 3),
                   child: TextFromFieldWidget(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -65,9 +97,9 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: false,
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.015),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.only(
+                      left: 15, right: 15, top: 2, bottom: 3),
                   child: TextFromFieldWidget(
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -86,10 +118,29 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.deepPurple,
                           onPressed: passwordStatus)),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.06),
+                Padding(
+                    padding: const EdgeInsets.only(
+                        left: 15, right: 15, top: 3, bottom: 30),
+                    child: TextFromFieldWidget(
+                        obscureText: isVisible,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Epmty Confirm Password';
+                          } else {
+                            return null;
+                          }
+                        },
+                        label: 'Confirm Password \n********',
+                        prefixIcon: Icons.lock_outline,
+                        suffixIcon: IconButton(
+                            icon: Icon(isVisible
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                            color: Colors.deepPurple,
+                            onPressed: passwordStatus))),
                 ElevatedbuttonWidget(
                   backgroundColor: Colors.deepPurple,
-                  name: 'Log In',
+                  name: 'Register',
                   textColor: Colors.white,
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
@@ -103,15 +154,15 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.015),
                 ElevatedbuttonWidget(
                   backgroundColor: Colors.white,
-                  name: 'Register',
+                  name: 'Log In',
                   textColor: Colors.deepPurple,
                   onPressed: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const RegisterPage()));
+                            builder: (context) => const LoginPage()));
                   },
-                ),
+                )
               ],
             ),
           ),
