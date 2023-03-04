@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SimpleList extends StatefulWidget {
-  const SimpleList({super.key});
+class ListThree extends StatefulWidget {
+  const ListThree({super.key});
 
   @override
-  SimpleListState createState() => SimpleListState();
+  ListThreeState createState() => ListThreeState();
 }
 
-class SimpleListState extends State<SimpleList> {
+class ListThreeState extends State<ListThree> {
   List<ServiceCard> serviceCardList = [];
 
   void removeCard(index) {
