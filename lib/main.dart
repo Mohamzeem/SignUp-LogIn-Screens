@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasks/pages/list_pages/list_two.dart';
+import 'package:tasks/pages/splash_home_page/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const ListTwo(),
+      home: const SplashScreen(),
       theme: ThemeData(
           appBarTheme: const AppBarTheme(backgroundColor: Colors.purple)),
     );

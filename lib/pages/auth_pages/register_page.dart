@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:tasks/widgets/text_from_field_widget.dart';
 import '../../widgets/elevated_button_widget.dart';
-import '../home_page.dart';
 import 'login_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -144,10 +143,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   textColor: Colors.white,
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomePage()));
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => const HomePage()));
                     }
                   },
                 ),

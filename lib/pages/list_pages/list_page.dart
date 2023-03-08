@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ListTwo extends StatefulWidget {
-  const ListTwo({super.key});
+class ListPage extends StatefulWidget {
+  const ListPage({super.key});
 
   @override
-  State<ListTwo> createState() => _ListTwoState();
+  State<ListPage> createState() => _ListPageState();
 }
 
-class _ListTwoState extends State<ListTwo> {
+class _ListPageState extends State<ListPage> {
   List<Widget> widgets = [];
   int currentIndex = 0;
   List<int> numbers = [];
